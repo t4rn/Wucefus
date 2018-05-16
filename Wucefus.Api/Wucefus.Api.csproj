@@ -42,6 +42,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.4\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -69,12 +74,17 @@
       <DependentUpon>Consents.svc</DependentUpon>
     </Compile>
     <Compile Include="IConsents.cs" />
+    <Compile Include="Inspectors\LoggerBehaviorExtensionElement.cs" />
+    <Compile Include="Inspectors\LoggerEndpointBehavior.cs" />
+    <Compile Include="Inspectors\LoggerMessageInspector.cs" />
+    <Compile Include="Inspectors\LoggerServiceBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

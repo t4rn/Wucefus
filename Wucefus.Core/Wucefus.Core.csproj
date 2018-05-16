@@ -40,7 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Consent.cs" />
+    <Compile Include="Dto\ConsentDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IConsentRepository.cs" />
+    <Compile Include="Repositories\MockedConsentRepository.cs" />
+    <Compile Include="Services\ConsentService.cs" />
+    <Compile Include="Services\IConsentService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
