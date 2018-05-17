@@ -5,9 +5,11 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using Wucefus.Api.Inspectors;
 
 namespace Wucefus.Api
 {
+    [LoggerServiceBehavior]
     public class Consents : IConsents
     {
         public string GetData(int value)
