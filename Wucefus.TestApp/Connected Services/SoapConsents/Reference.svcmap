@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a09858e1-9ef1-46ba-95b2-4f83acf5a58a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:63165/Consents.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Consents.disco" MetadataType="Disco" ID="9e850636-8d9a-4b1a-bfb1-2d3551540d14" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?disco" />
+    <MetadataFile FileName="Consents.wsdl" MetadataType="Wsdl" ID="2093d972-f177-48a8-a8cc-a3d141521ce2" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?wsdl" />
+    <MetadataFile FileName="Consents.xsd" MetadataType="Schema" ID="d0d10336-e691-4b7a-9be4-9997cbab88f6" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?xsd=xsd2" />
+    <MetadataFile FileName="Consents1.xsd" MetadataType="Schema" ID="60abfc69-0ec9-44f5-a6c8-38405fe5140b" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?xsd=xsd1" />
+    <MetadataFile FileName="Consents2.xsd" MetadataType="Schema" ID="568c538e-1e31-4c50-a569-3124b1b551a8" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

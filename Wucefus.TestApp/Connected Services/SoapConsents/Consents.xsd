@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Wucefus.Core.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Wucefus.Core.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="GetConsentsResultDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Consents" nillable="true" type="tns:ArrayOfConsentDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetConsentsResultDto" nillable="true" type="tns:GetConsentsResultDto" />
+  <xs:complexType name="ResponseDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsOk" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseDto" nillable="true" type="tns:ResponseDto" />
+  <xs:complexType name="ArrayOfConsentDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsentDto" nillable="true" type="tns:ConsentDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConsentDto" nillable="true" type="tns:ArrayOfConsentDto" />
+  <xs:complexType name="ConsentDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsentDto" nillable="true" type="tns:ConsentDto" />
+</xs:schema>
