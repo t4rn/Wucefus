@@ -8,7 +8,7 @@ namespace Wucefus.Api
         public ResponseDto AddConsent(ConsentDto consent)
         {
             ResponseDto response = new ResponseDto();
-            response.Message = $"You've sent a Consent with Value: '{consent?.Value}' and Desc: '{consent.Description}'!";
+            response.Message = $"You've added a Consent with Value: '{consent?.Value}' and Desc: '{consent.Description}'!";
             response.IsOk = true;
 
             return response;
@@ -18,6 +18,15 @@ namespace Wucefus.Api
         {
             ResponseDto response = new ResponseDto();
             response.Message = $"You've sent: {desc}!";
+            response.IsOk = true;
+
+            return response;
+        }
+
+        public ResponseDto DeleteConsent(string id)
+        {
+            ResponseDto response = new ResponseDto();
+            response.Message = $"You've deleted a Consent with Id: {id}!";
             response.IsOk = true;
 
             return response;
@@ -38,6 +47,15 @@ namespace Wucefus.Api
         {
             ResponseDto response = new ResponseDto();
             response.Message = $"Hello from {nameof(Jobs)}!";
+            response.IsOk = true;
+
+            return response;
+        }
+
+        public ResponseDto UpdateConsent(ConsentDto consent)
+        {
+            ResponseDto response = new ResponseDto();
+            response.Message = $"You've updated a Consent with Value: '{consent?.Value}' and Desc: '{consent.Description}'!";
             response.IsOk = true;
 
             return response;

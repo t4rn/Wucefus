@@ -25,5 +25,13 @@ namespace Wucefus.Api
         [WebInvoke(Method = "POST", UriTemplate = "consent", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
         ResponseDto AddConsent(ConsentDto consent);
+
+        [WebInvoke(Method = "PUT", UriTemplate = "consent", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        ResponseDto UpdateConsent(ConsentDto consent);
+
+        [WebInvoke(Method = "DELETE", UriTemplate = "consent/{id}", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        ResponseDto DeleteConsent(string id);
     }
 }
