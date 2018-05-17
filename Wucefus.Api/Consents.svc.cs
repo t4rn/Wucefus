@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using Wucefus.Api.Inspectors;
 using Wucefus.Core.Dto;
 using Wucefus.Core.Extensions;
-using Wucefus.Core.Repositories;
 using Wucefus.Core.Services;
 using Wucefus.Core.Services.Loggers;
 
@@ -21,10 +14,10 @@ namespace Wucefus.Api
         private readonly string _ip;
         private readonly IConsentService _consentService;
 
-        public Consents() : base(new KrisLogger())
+        public Consents(IKrisLogger logger, IConsentService consentService) : base(logger)
         {
             _ip = PrepareIp();
-            _consentService = new ConsentService(new MockedConsentRepository());
+            _consentService = consentService;
         }
 
         public GetConsentsResultDto GetConsentsAll()

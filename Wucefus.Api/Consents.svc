@@ -1,1 +1,6 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="Wucefus.Api.Consents" CodeBehind="Consents.svc.cs" %>
+﻿<%@ ServiceHost
+    Language="C#"
+    Debug="true"
+    Service="Wucefus.Api.Consents"
+    CodeBehind="Consents.svc.cs"
+    Factory="Ninject.Extensions.Wcf.NinjectServiceHostFactory" %>
