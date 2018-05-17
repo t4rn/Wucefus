@@ -4,12 +4,22 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
+using Wucefus.Core.Services.Loggers;
 
 namespace Wucefus.Api.Inspectors
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class LoggerServiceBehavior : Attribute, IServiceBehavior
     {
+        private readonly IKrisLogger _logger;
+        private readonly IDispatchMessageInspector _messageInspector;
+
+        public LoggerServiceBehavior(IKrisLogger logger)
+        {
+            _logger = logger;
+            _messageInspector = new LoggerMessageInspector(_logger);
+        }
+
         public void AddBindingParameters(ServiceDescription serviceDescription, ServiceHostBase serviceHostBase, Collection<ServiceEndpoint> endpoints, BindingParameterCollection bindingParameters)
         {
         }
@@ -23,8 +33,7 @@ namespace Wucefus.Api.Inspectors
                 {
                     foreach (var endpointDispatcher in channelDispatcher.Endpoints)
                     {
-                        LoggerMessageInspector inspector = new LoggerMessageInspector();
-                        endpointDispatcher.DispatchRuntime.MessageInspectors.Add(inspector);
+                        endpointDispatcher.DispatchRuntime.MessageInspectors.Add(_messageInspector);
                     }
                 }
             }

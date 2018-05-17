@@ -9,6 +9,13 @@ namespace Wucefus.Core.Repositories
 {
     public class MockedConsentRepository : IConsentRepository
     {
+        private readonly string _connectionString;
+
+        public MockedConsentRepository(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public IEnumerable<Consent> GetAll()
         {
             var consents = new List<Consent>();

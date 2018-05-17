@@ -13,9 +13,10 @@ namespace Wucefus.Api.Inspectors
     {
         private readonly IKrisLogger _log;
 
-        public LoggerMessageInspector()
+        public LoggerMessageInspector(IKrisLogger logger)
         {
-            _log = new KrisLogger();
+            _log = logger;
+            //_log = AutofacHostFactory.Container.Resolve<IKrisLogger>(); <- via Autofac
         }
 
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)

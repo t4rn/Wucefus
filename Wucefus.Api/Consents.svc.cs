@@ -8,7 +8,8 @@ using Wucefus.Core.Services.Loggers;
 
 namespace Wucefus.Api
 {
-    [LoggerServiceBehavior]
+    // TODO: LoggerServiceBehavior needs parameter
+    //[LoggerServiceBehavior]
     public class Consents : BaseSvc, IConsents
     {
         private readonly string _ip;

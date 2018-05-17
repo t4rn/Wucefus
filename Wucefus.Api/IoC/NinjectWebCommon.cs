@@ -8,7 +8,9 @@ namespace WcfDI_Ninject.App_Start
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
     using System;
+    using System.ServiceModel.Dispatcher;
     using System.Web;
+    using Wucefus.Api.Inspectors;
     using Wucefus.Core.Repositories;
     using Wucefus.Core.Services;
     using Wucefus.Core.Services.Loggers;
@@ -53,7 +55,7 @@ namespace WcfDI_Ninject.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IConsentRepository>().To<MockedConsentRepository>();//.WithConstructorArgument("connectionString", Settings.Default.ConnectionString);
+            kernel.Bind<IConsentRepository>().To<MockedConsentRepository>().WithConstructorArgument("connectionString", @"127.0.0.1\NinjectDB");
             kernel.Bind<IConsentService>().To<ConsentService>();
             kernel.Bind<IKrisLogger>().To<KrisLogger>();
         }

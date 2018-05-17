@@ -9,7 +9,8 @@ namespace Wucefus.Api.Inspectors
 
         protected override object CreateBehavior()
         {
-            return new LoggerEndpointBehavior();
+            //return new LoggerEndpointBehavior();
+            return null;
         }
     }
 }
