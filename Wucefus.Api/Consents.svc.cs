@@ -1,33 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using Wucefus.Api.Inspectors;
+using Wucefus.Core.Dto;
+using Wucefus.Core.Extensions;
+using Wucefus.Core.Repositories;
+using Wucefus.Core.Services;
+using Wucefus.Core.Services.Loggers;
 
 namespace Wucefus.Api
 {
     [LoggerServiceBehavior]
-    public class Consents : IConsents
+    public class Consents : BaseSvc, IConsents
     {
-        public string GetData(int value)
+        private readonly string _ip;
+        private readonly IConsentService _consentService;
+
+        public Consents() : base(new KrisLogger())
         {
-            return string.Format("You entered: {0}", value);
+            _ip = PrepareIp();
+            _consentService = new ConsentService(new MockedConsentRepository());
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public GetConsentsResultDto GetConsentsAll()
         {
-            if (composite == null)
+            string methodName = nameof(GetConsentsAll);
+            _log.Debug($"[{methodName}] START for IP: '{_ip}'");
+            GetConsentsResultDto result = new GetConsentsResultDto();
+
+            Stopwatch stopWatch = Stopwatch.StartNew();
+            try
             {
-                throw new ArgumentNullException("composite");
+                result.Consents = _consentService.GetAll();
+                result.IsOk = true;
             }
-            if (composite.BoolValue)
+            catch (Exception ex)
             {
-                composite.StringValue += "Suffix";
+                _log.Error($"[{methodName}] Ex: {ex}");
+                result.Message = $"Exception occurred: {ex.Message}.";
             }
-            return composite;
+
+            result.ProcessTime = stopWatch.Elapsed.ToString();
+            _log.Debug($"[{methodName}] END for IP: '{_ip}' | result: {result.Serialize()}");
+
+            return result;
+        }
+
+        public string Ping(int value)
+        {
+            _log.Debug($"[{nameof(Ping)}] START for IP: '{_ip}' and value: '{value}'");
+            return string.Format($"You entered: '{value}' from IP: '{_ip}'.");
         }
     }
 }

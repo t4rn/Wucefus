@@ -5,11 +5,19 @@ using System.ServiceModel.Dispatcher;
 using System.Text;
 using System.Xml;
 using Wucefus.Core.Extensions;
+using Wucefus.Core.Services.Loggers;
 
 namespace Wucefus.Api.Inspectors
 {
     public class LoggerMessageInspector : IDispatchMessageInspector
     {
+        private readonly IKrisLogger _log;
+
+        public LoggerMessageInspector()
+        {
+            _log = new KrisLogger();
+        }
+
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
             request = LogMessage(request.CreateBufferedCopy(int.MaxValue));
@@ -32,15 +40,15 @@ namespace Wucefus.Api.Inspectors
                 xw.Close();
             }
 
-            string logMsg = $"Message content:\n {sb.ToString().CleanWhiteSpaces()}";
+            string logMsg = $"Message via: '{msg.Properties.Via}' content:\n {sb.ToString().CleanWhiteSpaces()}";
             Debug.WriteLine(logMsg);
-            //_log.Debug(logMsg);
+            _log.Trace(logMsg);
 
             foreach (var header in msg.Headers)
             {
                 string headerMsg = $"Header: {header}";
                 Debug.WriteLine(headerMsg);
-                //_log.Debug(headerMsg);
+                _log.Trace(headerMsg);
             }
 
             return buffer.CreateMessage();

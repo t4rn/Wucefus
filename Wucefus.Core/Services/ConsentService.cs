@@ -19,7 +19,9 @@ namespace Wucefus.Core.Services
         }
         public IEnumerable<ConsentDto> GetAll()
         {
-            throw new NotImplementedException();
+            IEnumerable<ConsentDto> consents = new List<ConsentDto>();
+
+            return consents;
         }
 
         public ConsentDto GetByCode(string code)
