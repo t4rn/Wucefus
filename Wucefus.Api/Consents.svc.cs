@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.ServiceModel;
 using Wucefus.Api.Inspectors;
 using Wucefus.Core.Dto;
 using Wucefus.Core.Extensions;
@@ -49,6 +50,11 @@ namespace Wucefus.Api
         {
             _log.Debug($"[{nameof(Ping)}] START for IP: '{_ip}' and value: '{value}'");
             return string.Format($"You entered: '{value}' from IP: '{_ip}'.");
+        }
+
+        public string FaultMethod()
+        {
+            throw new FaultException(new FaultReason("Error occured"), new FaultCode("WCFUS007", new FaultCode("INNER002")));
         }
     }
 }

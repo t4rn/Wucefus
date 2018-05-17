@@ -11,5 +11,8 @@ namespace Wucefus.Api
 
         [OperationContract]
         GetConsentsResultDto GetConsentsAll();
+
+        [OperationContract]
+        string FaultMethod();
     }
 }

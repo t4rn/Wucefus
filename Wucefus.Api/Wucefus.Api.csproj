@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Consents.svc" />
+    <Content Include="Jobs.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +102,11 @@
     <Compile Include="Inspectors\LoggerMessageInspector.cs" />
     <Compile Include="Inspectors\LoggerServiceBehavior.cs" />
     <Compile Include="IoC\NinjectWebCommon.cs" />
+    <Compile Include="IJobs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Jobs.svc.cs">
+      <DependentUpon>Jobs.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
