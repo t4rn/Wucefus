@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 using Wucefus.TestApp.SoapConsents;
+using Wucefus.TestApp.SoapDuplexus;
 
 namespace Wucefus.TestApp
 {
@@ -13,6 +11,8 @@ namespace Wucefus.TestApp
         static void Main(string[] args)
         {
             GetConsents();
+
+            DoSomeDuplexWork();
 
             Console.Read();
         }
@@ -30,6 +30,18 @@ namespace Wucefus.TestApp
 
                 Console.WriteLine($"result:\n{jsonResult}");
             }
+        }
+
+        private static void DoSomeDuplexWork()
+        {
+            int x = 4;
+            int y = 7;
+            CallbackHandler callbacker = new CallbackHandler();
+            InstanceContext instanceContext = new InstanceContext(callbacker);
+
+            DuplexusClient client = new DuplexusClient(instanceContext);
+            client.DoWork(x, y);
+            Console.WriteLine($"DoSomDuplexWork Done for x = {x} and y = {y}. Waiting for result...");
         }
 
         private static string Serialize<T>(T result)

@@ -190,6 +190,12 @@ namespace Wucefus.TestApp.SoapConsents {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConsents/GetConsentsAll", ReplyAction="http://tempuri.org/IConsents/GetConsentsAllResponse")]
         System.Threading.Tasks.Task<Wucefus.TestApp.SoapConsents.GetConsentsResultDto> GetConsentsAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConsents/FaultMethod", ReplyAction="http://tempuri.org/IConsents/FaultMethodResponse")]
+        string FaultMethod();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConsents/FaultMethod", ReplyAction="http://tempuri.org/IConsents/FaultMethodResponse")]
+        System.Threading.Tasks.Task<string> FaultMethodAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -233,6 +239,14 @@ namespace Wucefus.TestApp.SoapConsents {
         
         public System.Threading.Tasks.Task<Wucefus.TestApp.SoapConsents.GetConsentsResultDto> GetConsentsAllAsync() {
             return base.Channel.GetConsentsAllAsync();
+        }
+        
+        public string FaultMethod() {
+            return base.Channel.FaultMethod();
+        }
+        
+        public System.Threading.Tasks.Task<string> FaultMethodAsync() {
+            return base.Channel.FaultMethodAsync();
         }
     }
 }

@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:63165/Consents.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:63165/Services/Consents.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Consents.disco" MetadataType="Disco" ID="9e850636-8d9a-4b1a-bfb1-2d3551540d14" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?disco" />
-    <MetadataFile FileName="Consents.wsdl" MetadataType="Wsdl" ID="2093d972-f177-48a8-a8cc-a3d141521ce2" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?wsdl" />
-    <MetadataFile FileName="Consents.xsd" MetadataType="Schema" ID="d0d10336-e691-4b7a-9be4-9997cbab88f6" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?xsd=xsd2" />
-    <MetadataFile FileName="Consents1.xsd" MetadataType="Schema" ID="60abfc69-0ec9-44f5-a6c8-38405fe5140b" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?xsd=xsd1" />
-    <MetadataFile FileName="Consents2.xsd" MetadataType="Schema" ID="568c538e-1e31-4c50-a569-3124b1b551a8" SourceId="1" SourceUrl="http://localhost:63165/Consents.svc?xsd=xsd0" />
+    <MetadataFile FileName="Consents3.xsd" MetadataType="Schema" ID="10097faa-506f-4a27-a32a-2abc9ef84412" SourceId="1" SourceUrl="http://localhost:63165/Services/Consents.svc?xsd=xsd1" />
+    <MetadataFile FileName="Consents31.xsd" MetadataType="Schema" ID="91505a9d-ebfa-418a-abba-a98abe0befe4" SourceId="1" SourceUrl="http://localhost:63165/Services/Consents.svc?xsd=xsd2" />
+    <MetadataFile FileName="Consents1.disco" MetadataType="Disco" ID="c033b3a9-87ed-494f-a2c4-b66cbd782b05" SourceId="1" SourceUrl="http://localhost:63165/Services/Consents.svc?disco" />
+    <MetadataFile FileName="Consents1.wsdl" MetadataType="Wsdl" ID="29ff3106-48a1-4217-ad66-adca9a73b17d" SourceId="1" SourceUrl="http://localhost:63165/Services/Consents.svc?wsdl" />
+    <MetadataFile FileName="Consents32.xsd" MetadataType="Schema" ID="38de969b-7a0f-4a53-9f85-1220f22e4763" SourceId="1" SourceUrl="http://localhost:63165/Services/Consents.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

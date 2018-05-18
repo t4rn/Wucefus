@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -87,24 +88,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Consents.svc" />
-    <Content Include="Jobs.svc" />
+    <Content Include="Services\Consents.svc" />
+    <Content Include="Services\Duplexus.svc" />
+    <Content Include="Services\Jobs.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseSvc.cs" />
-    <Compile Include="Consents.svc.cs">
+    <Compile Include="Services\BaseSvc.cs" />
+    <Compile Include="Services\Consents.svc.cs">
       <DependentUpon>Consents.svc</DependentUpon>
     </Compile>
-    <Compile Include="IConsents.cs" />
+    <Compile Include="Services\Duplexus.svc.cs">
+      <DependentUpon>Duplexus.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IConsents.cs" />
     <Compile Include="Inspectors\LoggerBehaviorExtensionElement.cs" />
     <Compile Include="Inspectors\LoggerEndpointBehavior.cs" />
     <Compile Include="Inspectors\LoggerMessageInspector.cs" />
     <Compile Include="Inspectors\LoggerServiceBehavior.cs" />
     <Compile Include="IoC\NinjectWebCommon.cs" />
-    <Compile Include="IJobs.cs" />
+    <Compile Include="Services\IDuplexus.cs" />
+    <Compile Include="Services\IJobs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Jobs.svc.cs">
+    <Compile Include="Services\Jobs.svc.cs">
       <DependentUpon>Jobs.svc</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Wucefus.Api.Duplexus" CodeBehind="Duplexus.svc.cs" %>
