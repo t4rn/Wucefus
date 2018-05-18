@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 using Wucefus.TestApp.SoapConsents;
 using Wucefus.TestApp.SoapDuplexus;
 
@@ -19,16 +20,22 @@ namespace Wucefus.TestApp
 
         private static void GetConsents()
         {
+            string headerName = "Hash";
+            string headerValue = "fuy052Ury6Gj";
+
             using (ConsentsClient client = new ConsentsClient())
             {
-                // not necessary
-                client.ClientCredentials.UserName.UserName = "user";
-                client.ClientCredentials.UserName.Password = "p@ssw0rd";
-                var result = client.GetConsentsAll();
+                using (new OperationContextScope(client.InnerChannel))
+                {
+                    MessageHeader messageHeader = MessageHeader.CreateHeader(headerName, "http://wucefus.com", headerValue);
+                    OperationContext.Current.OutgoingMessageHeaders.Add(messageHeader);
 
-                string jsonResult = Serialize(result);
+                    var result = client.GetConsentsAll();
 
-                Console.WriteLine($"result:\n{jsonResult}");
+                    string jsonResult = Serialize(result);
+
+                    Console.WriteLine($"{nameof(GetConsents)} result:\n{jsonResult}");
+                }
             }
         }
 
@@ -41,7 +48,7 @@ namespace Wucefus.TestApp
 
             DuplexusClient client = new DuplexusClient(instanceContext);
             client.DoWork(x, y);
-            Console.WriteLine($"DoSomDuplexWork Done for x = {x} and y = {y}. Waiting for result...");
+            Console.WriteLine($"{nameof(DoSomeDuplexWork)} Done for x = {x} and y = {y}. Waiting for result...");
         }
 
         private static string Serialize<T>(T result)

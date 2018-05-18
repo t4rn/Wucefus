@@ -41,7 +41,7 @@ namespace Wucefus.Api.Inspectors
                 xw.Close();
             }
 
-            string logMsg = $"Message via: '{msg.Properties.Via}' content:\n {sb.ToString().CleanWhiteSpaces()}";
+            string logMsg = $"Message via: '{msg.Properties.Via}' with '{msg.Headers?.Count}' Headers -> content:\n {sb.ToString().CleanWhiteSpaces()}";
             Debug.WriteLine(logMsg);
             _log.Trace(logMsg);
 
